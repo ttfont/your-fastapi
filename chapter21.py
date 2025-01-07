@@ -3,7 +3,7 @@ from fastapi import FastAPI, File, Form, UploadFile
 app = FastAPI()
 
 
-@app.post("/files/")
+@app.post("/files01/")
 async def create_file(
         file: bytes = File(), fileb: UploadFile = File(), token: str = Form()):
     return {
