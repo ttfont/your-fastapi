@@ -20,10 +20,10 @@ class UnicornException(Exception):
         self.name = name
 
 
-@app.get("/items/{item_id}")
+@app.get("/items01/{item_id}")
 async def read_item(item_id: str):
     if item_id not in items:
-        raise HTTPException(status_code=404, detail="Item not found")
+        raise HTTPException(status_code=404, detail={"error": "Item not found", "item_id": item_id})
     return {"item": items[item_id]}
 
 
@@ -33,7 +33,7 @@ async def read_item_header(item_id: str):
         raise HTTPException(
             status_code=404,
             detail="Item not found",
-            headers={"X-Error": "There goes my error"},
+            headers={"X-Error": "There goes your error"},
         )
     return {"item": items[item_id]}
 
@@ -42,7 +42,7 @@ async def read_item_header(item_id: str):
 async def unicorn_exception_handler(request: Request, exc: UnicornException):
     return JSONResponse(
         status_code=418,
-        content={"message": f"Oops! {exc.name} did something. There goes a rainbow..."},
+        content={"message": f"Oops! {exc.name} 这是一个 UnicornException 异常"}
     )
 
 
@@ -60,7 +60,7 @@ async def http_exception_handler(request, exc):
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request, exc):
-    return PlainTextResponse(str(exc), status_code=400)
+    return PlainTextResponse(str(exc.name), status_code=400)
 
 
 @app.get("/items02/{item_id}")
@@ -87,17 +87,18 @@ class Item(BaseModel):
 async def create_item03(item: Item):
     return item
 
+
 # 复用 FastAPI 异常处理器
-# @app.exception_handler(StarletteHTTPException)
-# async def custom_http_exception_handler(request, exc):
-#     print(f"OMG! An HTTP error!: {repr(exc)}")
-#     return await http_exception_handler(request, exc)
-#
-#
-# @app.exception_handler(RequestValidationError)
-# async def validation_exception_handler(request, exc):
-#     print(f"OMG! The client sent invalid data!: {exc}")
-#     return await request_validation_exception_handler(request, exc)
+@app.exception_handler(StarletteHTTPException)
+async def custom_http_exception_handler(request, exc):
+    print(f"OMG! An HTTP error!: {repr(exc)}")
+    return await http_exception_handler(request, exc)
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    print(f"OMG! The client sent invalid data!: {exc}")
+    return await request_validation_exception_handler(request, exc)
 
 
 @app.get("/items04/{item_id}")
