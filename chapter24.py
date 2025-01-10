@@ -5,8 +5,6 @@ from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 
 
-
-
 class Item(BaseModel):
     title: str
     timestamp: datetime
