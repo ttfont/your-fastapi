@@ -17,17 +17,17 @@ async def create_item(item: Item):
     return item
 
 
-@app.post("/items01/", response_model=Item, tags=["items"])
+@app.post("/items01/", response_model=Item, tags=["这是功能A接口"])
 async def create_item(item: Item):
     return item
 
 
-@app.get("/items02/", tags=["items"])
+@app.get("/items02/", tags=["这是功能A接口"])
 async def read_items():
     return [{"name": "Foo", "price": 42}]
 
 
-@app.get("/users03/", tags=["users"])
+@app.get("/users03/", tags=["这是用户A接口"])
 async def read_users():
     return [{"username": "johndoe"}]
 
@@ -35,8 +35,8 @@ async def read_users():
 @app.post(
     "/items03/",
     response_model=Item,
-    summary="Create an item,HAHA",
-    description="Create an item with all the information, name, description, price, tax and a set of unique tags",
+    summary="这是一个items03接口",
+    description="这是一个items03接口，它的作用是...",
 )
 async def create_item(item: Item):
     return item
@@ -45,13 +45,12 @@ async def create_item(item: Item):
 @app.post("/items04/", response_model=Item, summary="Create an item")
 async def create_item(item: Item):
     """
-    Create an item with all the information:
-
-    - **name**: each item must have a name
-    - **description**: a long description
-    - **price**: required
-    - **tax**: if the item doesn't have tax, you can omit this
-    - **tags**: a set of unique tag strings for this item
+    这是简述：
+    - **name**：名称
+    - **description**：描述
+    - **price**：价格
+    - **tax**：税费
+    - **tags**：标签
     """
     return item
 
@@ -59,18 +58,18 @@ async def create_item(item: Item):
 @app.post(
     "/items05/",
     response_model=Item,
-    summary="Create an item",
-    response_description="The created item",
+    summary="这是一个 summary",
+    description="这是一个 description",
+    response_description="这是一个 response_description",
 )
 async def create_item(item: Item):
     """
-    Create an item with all the information:
-
-    - **name**: each item must have a name
-    - **description**: a long description
-    - **price**: required
-    - **tax**: if the item doesn't have tax, you can omit this
-    - **tags**: a set of unique tag strings for this item
+    这是简述：
+    - **name**：名称
+    - **description**：描述
+    - **price**：价格
+    - **tax**：税费
+    - **tags**：标签
     """
     return item
 
