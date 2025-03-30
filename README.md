@@ -4,7 +4,7 @@
 
 **源码地址**：[GitHub FastApiProj](https://github.com/ttfont/FastApiProj) 或 [your-fastapi](https://github.com/ttfont/your-fastapi)
 
-![bg-01]([/Users/dayu/Documents/your的博客/FastAPI/fastapiimg/47-01.png](https://github.com/ttfont/your-fastapi/blob/master/images/bg01.png))
+![bg-01](https://github.com/ttfont/your-fastapi/blob/master/images/bg01.png)
 
 
 ### 一 专栏介绍
