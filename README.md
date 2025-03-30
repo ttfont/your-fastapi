@@ -1,6 +1,6 @@
 # 《一起学 FastAPI》专栏目录 ｜ 全面解析 FastAPI，快速掌握高效 Web 开发技巧 📚🌐
 
-**[CSDN博客](https://blog.csdn.net/u014394049) 首页**：[敲代码不忘补水](https://blog.csdn.net/u014394049) 《[一起学 FastAPI](https://blog.csdn.net/u014394049/category_12821373.html)》 。
+**[CSDN博客](https://blog.csdn.net/u014394049) 首页**：[敲代码不忘补水](https://blog.csdn.net/u014394049) 《[一起学 FastAPI](https://blog.csdn.net/u014394049/category_12821373.html)》和 《[一起学 Pytho](https://www.zhihu.com/column/c_1817608178675896320)》 。
 
 **源码地址**：[GitHub FastApiProj](https://github.com/ttfont/FastApiProj) 或 [your-fastapi](https://github.com/ttfont/your-fastapi)
 
